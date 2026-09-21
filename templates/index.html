@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}
+Malaysia Explorer | Discover Malaysia
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+            KUALA LUMPUR • BATU CAVES • GENTING
+        </p>
+
+        <h1>
+            Discover<br>
+            Malaysia.
+        </h1>
+
+        <p class="hero-description">
+            Explore the best places to visit, discover
+            unforgettable experiences and plan your
+            perfect trip around Kuala Lumpur.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('trip_planner') }}" class="primary-button">
+                Plan My Trip
+            </a>
+
+            <a href="{{ url_for('explore') }}" class="secondary-button">
+                Explore Malaysia
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="destinations-section">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="section-label">EXPLORE</p>
+
+            <h2>
+                Where do you<br>
+                want to go?
+            </h2>
+        </div>
+
+        <p class="section-description">
+            From the heart of Kuala Lumpur to the
+            caves of Batu and the mountains of Genting,
+            discover experiences worth remembering.
+        </p>
+
+    </div>
+
+
+    <div class="destination-grid">
+
+        <a href="{{ url_for('explore') }}" class="destination-card kl-card">
+
+            <div class="destination-overlay"></div>
+
+            <div class="destination-content">
+
+                <span>01</span>
+
+                <h3>Kuala Lumpur</h3>
+
+                <p>
+                    City life, food, culture & nightlife
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('attractions') }}" class="destination-card batu-card">
+
+            <div class="destination-overlay"></div>
+
+            <div class="destination-content">
+
+                <span>02</span>
+
+                <h3>Batu Caves</h3>
+
+                <p>
+                    Culture, history & adventure
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="{{ url_for('explore') }}" class="destination-card genting-card">
+
+            <div class="destination-overlay"></div>
+
+            <div class="destination-content">
+
+                <span>03</span>
+
+                <h3>Genting Highlands</h3>
+
+                <p>
+                    Mountains, entertainment & adventure
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="planner-preview">
+
+    <div class="planner-content">
+
+        <p class="section-label">PLAN YOUR EXPERIENCE</p>
+
+        <h2>
+            Your trip.<br>
+            Your way.
+        </h2>
+
+        <p>
+            Tell us what you're interested in,
+            how long you're staying and your budget.
+            We'll help you build your ideal Malaysian
+            adventure.
+        </p>
+
+        <a href="{{ url_for('trip_planner') }}" class="primary-button">
+            Start Planning
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

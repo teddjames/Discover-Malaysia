@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}
+Where to Stay | Malaysia Explorer
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="section-label">
+            FIND YOUR STAY
+        </p>
+
+        <h1>
+            Where will<br>
+            you stay?
+        </h1>
+
+        <p>
+            Compare hotels and accommodation around
+            Kuala Lumpur and Genting Highlands based
+            on price, location and ratings.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="listing-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="section-label">
+                ACCOMMODATION
+            </p>
+
+            <h2>
+                Stay<br>
+                your way.
+            </h2>
+
+        </div>
+
+        <p class="section-description">
+            From affordable stays in the heart of Kuala Lumpur
+            to luxury accommodation in Genting Highlands.
+        </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filter-bar">
+
+        <input
+            type="text"
+            id="hotelSearch"
+            placeholder="Search for hotels..."
+        >
+
+        <select id="hotelLocation">
+
+            <option value="all">
+                All locations
+            </option>
+
+            <option value="klcc">
+                KLCC
+            </option>
+
+            <option value="bukit-bintang">
+                Bukit Bintang
+            </option>
+
+            <option value="chinatown">
+                Chinatown
+            </option>
+
+            <option value="genting">
+                Genting Highlands
+            </option>
+
+        </select>
+
+
+        <select id="hotelType">
+
+            <option value="all">
+                All accommodation
+            </option>
+
+            <option value="hotel">
+                Hotels
+            </option>
+
+            <option value="apartment">
+                Apartments
+            </option>
+
+            <option value="airbnb">
+                Airbnb
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- HOTEL GRID -->
+
+    <div class="hotel-grid">
+
+    {% for hotel in hotels %}
+
+    <article class="hotel-card">
+
+        <div class="hotel-image">
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/' + hotel['image']
+                ) }}"
+                alt="{{ hotel['name'] }}"
+            >
+
+            <span class="hotel-type">
+                {{ hotel['type'] | upper }}
+            </span>
+
+        </div>
+
+
+        <div class="hotel-content">
+
+            <span class="card-location">
+                {{ hotel['destination_name'] }}
+            </span>
+
+
+            <h3>
+                {{ hotel['name'] }}
+            </h3>
+
+
+            <div class="hotel-rating">
+                ⭐ {{ hotel['rating'] }}
+            </div>
+
+
+            <p>
+                {{ hotel['description'] }}
+            </p>
+
+
+            <div class="hotel-price">
+
+                <div>
+
+                    <strong>
+                        RM {{ hotel['price_per_night'] }}
+                    </strong>
+
+                    <span>
+                        / night
+                    </span>
+
+                </div>
+
+
+                <a href="#" class="small-button">
+                    View
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</div>
+
+</section>
+
+{% endblock %}

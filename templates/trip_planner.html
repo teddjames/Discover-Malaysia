@@ -1,0 +1,393 @@
+{% extends "base.html" %}
+
+{% block title %}
+Plan Your Trip | Malaysia Explorer
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="section-label">
+            PERSONAL TRAVEL PLANNER
+        </p>
+
+        <h1>
+            Build your<br>
+            perfect trip.
+        </h1>
+
+        <p>
+            Tell us about your trip and we'll help you
+            create a personalised itinerary around
+            Kuala Lumpur, Batu Caves and Genting.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="planner-section">
+
+    <div class="planner-form">
+
+
+        <!-- ==========================================
+             STEP 01 — TRIP LENGTH
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                01
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    TRIP LENGTH
+                </p>
+
+                <h2>
+                    How long are you staying?
+                </h2>
+
+                <div class="option-grid">
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="days"
+                        data-value="1"
+                    >
+                        1 Day
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="days"
+                        data-value="2"
+                    >
+                        2 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="days"
+                        data-value="3"
+                    >
+                        3 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="days"
+                        data-value="4"
+                    >
+                        4 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="days"
+                        data-value="5"
+                    >
+                        5 Days
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="days"
+                        data-value="7"
+                    >
+                        7 Days
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             STEP 02 — BUDGET
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                02
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    BUDGET
+                </p>
+
+                <h2>
+                    What's your budget?
+                </h2>
+
+                <div class="option-grid">
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="budget"
+                        data-value="conservative"
+                    >
+                        Conservative
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="budget"
+                        data-value="moderate"
+                    >
+                        Moderate
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="budget"
+                        data-value="luxury"
+                    >
+                        Luxury
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             STEP 03 — INTERESTS
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                03
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    INTERESTS
+                </p>
+
+                <h2>
+                    What do you enjoy?
+                </h2>
+
+                <div class="interest-grid">
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="food"
+                    >
+                        🍜 Food
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="interest"
+                        data-value="photography"
+                    >
+                        📸 Photography
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="culture"
+                    >
+                        🛕 Culture
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="adventure"
+                    >
+                        🏔️ Adventure
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="shopping"
+                    >
+                        🛍️ Shopping
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="nightlife"
+                    >
+                        🌙 Nightlife
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="nature"
+                    >
+                        🌿 Nature
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="family"
+                    >
+                        👨‍👩‍👧 Family
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             STEP 04 — DESTINATIONS
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                04
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    DESTINATIONS
+                </p>
+
+                <h2>
+                    Where do you want to go?
+                </h2>
+
+                <div class="interest-grid">
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="destination"
+                        data-value="Kuala Lumpur"
+                    >
+                        Kuala Lumpur
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="destination"
+                        data-value="Batu Caves"
+                    >
+                        Batu Caves
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="destination"
+                        data-value="Genting Highlands"
+                    >
+                        Genting Highlands
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             BUILD TRIP BUTTON
+        =========================================== -->
+
+        <div class="planner-submit">
+
+            <button
+                type="button"
+                class="primary-button planner-main-button"
+                id="generateTrip"
+            >
+                Build My Trip →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         ITINERARY RESULTS
+    =========================================== -->
+
+    <section
+        id="itineraryResults"
+        class="itinerary-results"
+    >
+
+        <div class="planner-empty">
+
+            <span class="section-label">
+                YOUR ITINERARY
+            </span>
+
+            <h2>
+                Let's plan your trip.
+            </h2>
+
+            <p>
+                Select your trip preferences above
+                and we'll create a personalised
+                itinerary for you.
+            </p>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- ==========================================
+     TRIP PLANNER JAVASCRIPT
+=========================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/trip_planner.js') }}"
+></script>
+
+{% endblock %}

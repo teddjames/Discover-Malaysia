@@ -1,0 +1,1 @@
+console.log("Malaysia Explorer loaded successfully.");

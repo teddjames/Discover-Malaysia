@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Malaysia Explorer{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="{{ url_for('home') }}" class="logo">
+                MALAYSIA<span>.</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="{{ url_for('explore') }}">Explore</a>
+                <a href="{{ url_for('attractions') }}">Attractions</a>
+                <a href="{{ url_for('hotels') }}">Stay</a>
+                <a href="{{ url_for('transport') }}">Transport</a>
+                <a href="{{ url_for('trip_planner') }}">Plan Your Trip</a>
+            </div>
+
+            <a href="{{ url_for('trip_planner') }}" class="nav-button">
+                Plan My Trip
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div>
+                <h3>MALAYSIA<span>.</span></h3>
+                <p>
+                    Discover Kuala Lumpur, Batu Caves
+                    and Genting Highlands.
+                </p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+                <a href="{{ url_for('explore') }}">Destinations</a>
+                <a href="{{ url_for('attractions') }}">Attractions</a>
+                <a href="{{ url_for('hotels') }}">Hotels</a>
+                <a href="{{ url_for('transport') }}">Transport</a>
+            </div>
+
+            <div>
+                <h4>Plan</h4>
+                <a href="{{ url_for('trip_planner') }}">Trip Planner</a>
+                <a href="{{ url_for('itinerary') }}">Itinerary</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Malaysia Explorer. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

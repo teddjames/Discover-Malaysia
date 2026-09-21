@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Explore Malaysia | Malaysia Explorer
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="page-hero-content">
+        <p class="section-label">EXPLORE MALAYSIA</p>
+
+        <h1>
+            Find your<br>
+            next experience.
+        </h1>
+
+        <p>
+            Discover the best places to visit, things to do
+            and experiences around Kuala Lumpur, Batu Caves
+            and Genting Highlands.
+        </p>
+    </div>
+</section>
+
+
+<section class="explore-section">
+
+    <div class="section-heading">
+        <div>
+            <p class="section-label">DESTINATIONS</p>
+
+            <h2>
+                Explore<br>
+                your way.
+            </h2>
+        </div>
+
+        <p class="section-description">
+            Whether you're looking for culture, adventure,
+            food, nightlife or relaxation, find something
+            worth experiencing.
+        </p>
+    </div>
+
+
+    <div class="explore-grid">
+
+        <a href="{{ url_for('attractions') }}" class="explore-card">
+            <div class="explore-card-content">
+                <span>01</span>
+                <h3>Attractions</h3>
+                <p>Discover iconic places and landmarks.</p>
+            </div>
+        </a>
+
+
+        <a href="{{ url_for('hotels') }}" class="explore-card">
+            <div class="explore-card-content">
+                <span>02</span>
+                <h3>Where to Stay</h3>
+                <p>Find hotels and accommodation.</p>
+            </div>
+        </a>
+
+
+        <a href="{{ url_for('transport') }}" class="explore-card">
+            <div class="explore-card-content">
+                <span>03</span>
+                <h3>Getting Around</h3>
+                <p>Compare trains, buses and Grab.</p>
+            </div>
+        </a>
+
+
+        <a href="{{ url_for('trip_planner') }}" class="explore-card">
+            <div class="explore-card-content">
+                <span>04</span>
+                <h3>Plan Your Trip</h3>
+                <p>Build a personalised itinerary.</p>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

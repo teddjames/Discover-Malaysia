@@ -1,0 +1,1427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f3ef;
+    color: #151515;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    color: white;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span,
+.footer h3 span {
+    color: #d7a84b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.65;
+}
+
+.nav-button {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("../images/KLcityscapesunset.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.25)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    color: white;
+}
+
+.hero-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 9vw, 140px);
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -5px;
+    margin-bottom: 35px;
+}
+
+.hero-description {
+    max-width: 500px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    transition: all 0.3s ease;
+}
+
+.primary-button {
+    background: #d7a84b;
+    color: #111;
+}
+
+.primary-button:hover {
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: white;
+}
+
+.secondary-button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.destinations-section {
+    padding: 120px 5%;
+}
+
+.section-heading {
+    max-width: 1400px;
+    margin: 0 auto 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+}
+
+.section-label {
+    color: #9b742c;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.section-heading h2,
+.planner-content h2 {
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+}
+
+.section-description {
+    max-width: 420px;
+    line-height: 1.7;
+    color: #666;
+}
+
+
+/* =========================
+   DESTINATION CARDS
+========================= */
+
+.destination-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 20px;
+}
+
+.destination-card {
+    min-height: 500px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: end;
+
+    border-radius: 5px;
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+
+    transition: transform 0.4s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+}
+
+.kl-card {
+    background-image: url("../images/KLnightskyline.jpg");
+}
+
+.batu-card {
+    background-image: url("../images/Batucavesstatue.jpg");
+}
+
+.genting-card {
+    background-image: url("../images/genting.jpg");
+}
+
+.destination-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0, 0, 0, 0.8)
+        );
+}
+
+.destination-content {
+    position: relative;
+
+    padding: 30px;
+
+    z-index: 2;
+}
+
+.destination-content span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.destination-content h3 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.destination-content p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+/* =========================
+   PLANNER
+========================= */
+
+.planner-preview {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 8%;
+
+    background: #171717;
+
+    color: white;
+}
+
+.planner-content {
+    max-width: 650px;
+}
+
+.planner-content p:not(.section-label) {
+    line-height: 1.7;
+
+    color: #bdbdbd;
+
+    margin: 30px 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #101010;
+    color: white;
+
+    padding: 80px 5% 30px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 60px;
+}
+
+.footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+}
+
+.footer p {
+    max-width: 300px;
+
+    color: #888;
+
+    line-height: 1.7;
+}
+
+.footer a {
+    display: block;
+
+    color: #aaa;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 60px auto 0;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #292929;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-card {
+        min-height: 400px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        padding: 20px 0;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .destinations-section {
+        padding: 80px 5%;
+    }
+
+}   
+
+/* =========================
+   INNER PAGE HERO
+========================= */
+
+.page-hero {
+    min-height: 65vh;
+
+    display: flex;
+    align-items: end;
+
+    padding: 150px 5% 80px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("../images/KLcityscapesunset.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.page-hero-content {
+    max-width: 1400px;
+    width: 100%;
+    margin: auto;
+}
+
+.page-hero h1 {
+    font-size: clamp(60px, 8vw, 110px);
+    line-height: 0.9;
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+}
+
+.page-hero p:not(.section-label) {
+    max-width: 550px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   EXPLORE
+========================= */
+
+.explore-section {
+    padding: 120px 5%;
+}
+
+.explore-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.explore-card {
+    min-height: 350px;
+
+    display: flex;
+    align-items: end;
+
+    padding: 35px;
+
+    background: #1a1a1a;
+
+    color: white;
+
+    border-radius: 5px;
+
+    transition: transform 0.3s ease,
+                background 0.3s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-6px);
+    background: #222;
+}
+
+.explore-card-content span {
+    font-size: 12px;
+    color: #d7a84b;
+}
+
+.explore-card-content h3 {
+    font-size: 35px;
+    margin: 12px 0;
+}
+
+.explore-card-content p {
+    color: #aaa;
+}
+
+
+@media (max-width: 700px) {
+
+    .explore-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-hero h1 {
+        font-size: 60px;
+    }
+
+}
+
+/* =========================
+   LISTING PAGES
+========================= */
+
+.listing-section {
+    padding: 120px 5%;
+}
+
+.filter-bar {
+    max-width: 1400px;
+    margin: 0 auto 50px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 15px;
+}
+
+.filter-bar input,
+.filter-bar select {
+    padding: 16px 18px;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    background: white;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+    border-color: #9b742c;
+}
+
+
+.attractions-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+.attraction-card {
+    background: white;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.attraction-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-location {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #9b742c;
+}
+
+.card-content h3 {
+    font-size: 25px;
+
+    margin: 10px 0;
+}
+
+.card-content p {
+    color: #777;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+.card-meta {
+    margin-top: 20px;
+
+    font-size: 14px;
+}
+
+
+@media (max-width: 900px) {
+
+    .attractions-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   HOTELS
+========================= */
+
+.hotel-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.hotel-card {
+    background: white;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-6px);
+}
+
+.hotel-image {
+    height: 300px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hotel-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.hotel-card:hover .hotel-image img {
+    transform: scale(1.05);
+}
+
+.hotel-type {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    padding: 7px 12px;
+
+    background: white;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.hotel-content {
+    padding: 25px;
+}
+
+.hotel-content h3 {
+    font-size: 25px;
+
+    margin: 10px 0;
+}
+
+.hotel-rating {
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+.hotel-content p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.hotel-price {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+}
+
+.hotel-price strong {
+    font-size: 20px;
+}
+
+.hotel-price span {
+    color: #888;
+
+    font-size: 12px;
+}
+
+.small-button {
+    padding: 10px 18px;
+
+    background: #171717;
+
+    color: white;
+
+    border-radius: 25px;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.small-button:hover {
+    background: #d7a84b;
+
+    color: #111;
+}
+
+
+@media (max-width: 900px) {
+
+    .hotel-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hotel-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   TRANSPORT
+========================= */
+
+.transport-section {
+    padding: 120px 5%;
+}
+
+.route-planner {
+    max-width: 1400px;
+    margin: 0 auto 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr auto;
+
+    align-items: end;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 5px;
+}
+
+.route-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.route-field label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #888;
+}
+
+.route-field select {
+    padding: 16px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    font-size: 14px;
+}
+
+.route-arrow {
+    font-size: 25px;
+
+    padding-bottom: 10px;
+}
+
+.transport-results {
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+.transport-results > h3 {
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+.transport-card {
+    display: grid;
+
+    grid-template-columns:
+        70px
+        2fr
+        150px
+        150px;
+
+    align-items: center;
+
+    gap: 25px;
+
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+
+    transition: transform 0.3s ease;
+}
+
+.transport-card:hover {
+    transform: translateX(5px);
+}
+
+.transport-icon {
+    font-size: 35px;
+}
+
+.transport-info > span {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #9b742c;
+}
+
+.transport-info h4 {
+    font-size: 20px;
+
+    margin: 7px 0;
+}
+
+.transport-info p {
+    font-size: 13px;
+
+    color: #777;
+}
+
+.transport-details,
+.transport-price {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.transport-details strong,
+.transport-price strong {
+    font-size: 18px;
+}
+
+.transport-details span,
+.transport-price span {
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+@media (max-width: 800px) {
+
+    .route-planner {
+        grid-template-columns: 1fr;
+
+    }
+
+    .route-arrow {
+        display: none;
+    }
+
+    .transport-card {
+        grid-template-columns: 50px 1fr;
+    }
+
+    .transport-details,
+    .transport-price {
+        grid-column: 2;
+    }
+
+}
+
+/* =========================
+   TRIP PLANNER
+========================= */
+
+.planner-section {
+    padding: 120px 5%;
+}
+
+.planner-form {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.planner-step {
+    display: grid;
+
+    grid-template-columns: 70px 1fr;
+
+    gap: 30px;
+
+    padding: 60px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.planner-step > span {
+    font-size: 13px;
+
+    color: #9b742c;
+
+    letter-spacing: 2px;
+}
+
+.planner-step h2 {
+    font-size: 35px;
+
+    margin-bottom: 30px;
+}
+
+.option-grid,
+.interest-grid {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.planner-option {
+    padding: 14px 22px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: all 0.25s ease;
+}
+
+.planner-option:hover {
+    border-color: #9b742c;
+}
+
+.planner-option.selected {
+    background: #171717;
+
+    color: white;
+
+    border-color: #171717;
+}
+
+.planner-submit {
+    padding-top: 60px;
+
+    text-align: center;
+}
+
+.planner-main-button {
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    padding: 18px 35px;
+}
+
+
+@media (max-width: 600px) {
+
+    .planner-step {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-step h2 {
+        font-size: 28px;
+    }
+
+}
+
+/* =========================
+   ITINERARY
+========================= */
+
+.itinerary-header {
+    min-height: 65vh;
+
+    padding: 150px 8% 80px;
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    background: #171717;
+
+    color: white;
+}
+
+.itinerary-header h1 {
+    font-size: clamp(60px, 8vw, 110px);
+
+    line-height: 0.9;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+}
+
+.itinerary-header p:not(.section-label) {
+    color: #aaa;
+}
+
+.trip-summary {
+    min-width: 220px;
+
+    padding: 30px;
+
+    border: 1px solid #444;
+
+    border-radius: 5px;
+}
+
+.trip-summary span {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #999;
+
+    margin-bottom: 15px;
+}
+
+.trip-summary strong {
+    display: block;
+
+    font-size: 35px;
+
+    margin-bottom: 5px;
+}
+
+.trip-summary small {
+    color: #888;
+}
+
+
+.itinerary-section {
+    padding: 100px 8%;
+}
+
+.day-navigation {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 80px;
+}
+
+.day-button {
+    padding: 12px 25px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+.day-button.active {
+    background: #171717;
+
+    color: white;
+
+    border-color: #171717;
+}
+
+.itinerary-day {
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.day-title {
+    margin-bottom: 60px;
+}
+
+.day-title > span {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #9b742c;
+}
+
+.day-title h2 {
+    font-size: 45px;
+
+    margin-top: 10px;
+}
+
+.timeline {
+    border-left: 2px solid #ddd;
+
+    padding-left: 40px;
+}
+
+.timeline-item {
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 30px;
+
+    position: relative;
+
+    margin-bottom: 60px;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -49px;
+
+    top: 5px;
+
+    width: 14px;
+
+    height: 14px;
+
+    background: #d7a84b;
+
+    border-radius: 50%;
+}
+
+.timeline-time {
+    font-size: 14px;
+
+    color: #888;
+}
+
+.timeline-content > span {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #9b742c;
+}
+
+.timeline-content h3 {
+    font-size: 25px;
+
+    margin: 10px 0;
+}
+
+.timeline-content p {
+    color: #777;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+}
+
+
+@media (max-width: 700px) {
+
+    .itinerary-header {
+        flex-direction: column;
+
+        align-items: start;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+}
+
+/* =========================
+   TRANSPORT RESULTS
+========================= */
+
+.transport-results-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 25px;
+}
+
+.transport-results-header h3 {
+    font-size: 28px;
+
+    margin-top: 10px;
+}
+
+.transport-results-header > span {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.transport-results-empty {
+    padding: 70px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 5px;
+}
+
+.transport-results-empty h3 {
+    font-size: 30px;
+
+    margin: 10px 0 15px;
+}
+
+.transport-results-empty p {
+    color: #777;
+
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.7;
+}
+
+.transport-error,
+.no-transport {
+    padding: 40px;
+
+    background: white;
+
+    text-align: center;
+
+    border-radius: 5px;
+}
+
+.no-transport h3 {
+    margin-bottom: 10px;
+}
+
+.no-transport p {
+    color: #777;
+}

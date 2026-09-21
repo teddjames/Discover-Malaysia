@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}
+Transport | Malaysia Explorer
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="section-label">
+            GETTING AROUND
+        </p>
+
+        <h1>
+            Move<br>
+            around Malaysia.
+        </h1>
+
+        <p>
+            Compare trains, buses and Grab to find
+            the best way to get around Kuala Lumpur,
+            Batu Caves and Genting Highlands.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="transport-section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="section-label">
+                TRANSPORT PLANNER
+            </p>
+
+            <h2>
+                How do you<br>
+                want to travel?
+            </h2>
+
+        </div>
+
+        <p class="section-description">
+            Compare different transport options based
+            on estimated price, journey time and convenience.
+        </p>
+
+    </div>
+
+
+    <!-- ROUTE SEARCH -->
+
+    <div class="route-planner">
+
+        <div class="route-field">
+
+            <label>
+                FROM
+            </label>
+
+            <select id="transportFrom">
+
+                <option>
+                    Kuala Lumpur
+                </option>
+
+                <option>
+                    KLCC
+                </option>
+
+                <option>
+                    Bukit Bintang
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="route-arrow">
+            →
+        </div>
+
+
+        <div class="route-field">
+
+            <label>
+                TO
+            </label>
+
+            <select id="transportTo">
+
+                <option>
+                    Batu Caves
+                </option>
+
+                <option>
+                    Genting Highlands
+                </option>
+
+                <option>
+                    KLCC
+                </option>
+
+                <option>
+                    Bukit Bintang
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="compareTransport"
+        >
+            Compare
+        </button>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div class="transport-results">
+
+    <div class="transport-results-empty">
+
+        <span class="section-label">
+            TRANSPORT
+        </span>
+
+        <h3>
+            Compare your options.
+        </h3>
+
+        <p>
+            Select your starting point and destination
+            above to see available transport options.
+        </p>
+
+    </div>
+
+</div>
+</section>
+
+<script src="{{ url_for('static', filename='js/transport.js') }}"></script>
+{% endblock %}

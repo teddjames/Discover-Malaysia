@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}
+Attractions | Malaysia Explorer
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <p class="section-label">
+            PLACES WORTH VISITING
+        </p>
+
+        <h1>
+            Attractions.
+        </h1>
+
+        <p>
+            Explore the iconic landmarks, cultural sites,
+            natural attractions and unforgettable experiences
+            around Kuala Lumpur, Batu Caves and Genting Highlands.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="listing-section">
+
+    <div class="section-heading">
+
+        <div>
+            <p class="section-label">DISCOVER</p>
+
+            <h2>
+                Popular<br>
+                places.
+            </h2>
+        </div>
+
+        <p class="section-description">
+            From iconic city landmarks to cultural
+            experiences and mountain adventures.
+        </p>
+
+    </div>
+
+
+    <div class="filter-bar">
+
+        <input
+            type="text"
+            placeholder="Search attractions..."
+            id="attractionSearch"
+        >
+
+        <select id="locationFilter">
+
+            <option value="all">
+                All locations
+            </option>
+
+            <option value="kuala-lumpur">
+                Kuala Lumpur
+            </option>
+
+            <option value="batu-caves">
+                Batu Caves
+            </option>
+
+            <option value="genting">
+                Genting Highlands
+            </option>
+
+        </select>
+
+
+        <select id="categoryFilter">
+
+            <option value="all">
+                All categories
+            </option>
+
+            <option value="culture">
+                Culture
+            </option>
+
+            <option value="adventure">
+                Adventure
+            </option>
+
+            <option value="nature">
+                Nature
+            </option>
+
+            <option value="shopping">
+                Shopping
+            </option>
+
+            <option value="nightlife">
+                Nightlife
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="attractions-grid">
+
+    {% for attraction in attractions %}
+
+    <article class="attraction-card">
+
+        <div class="card-image">
+
+            <img
+                src="{{ url_for(
+                    'static',
+                    filename='images/' + attraction['image']
+                ) }}"
+                alt="{{ attraction['name'] }}"
+            >
+
+        </div>
+
+
+        <div class="card-content">
+
+            <span class="card-location">
+
+                {{ attraction['destination_name'] }}
+
+            </span>
+
+
+            <h3>
+
+                {{ attraction['name'] }}
+
+            </h3>
+
+
+            <p>
+
+                {{ attraction['description'] }}
+
+            </p>
+
+
+            <div class="card-meta">
+
+                ⭐ {{ attraction['rating'] }}
+
+                {% if attraction['price'] > 0 %}
+
+                    · RM {{ attraction['price'] }}
+
+                {% else %}
+
+                    · Free
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</div>
+
+</section>
+
+{% endblock %}
