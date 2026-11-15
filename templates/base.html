@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f6f0">
+  <meta name="description" content="Discover Malaysia: a beautifully simple guide to destinations, local attractions, stays, travel connections and personalised itineraries.">
+  <title>{% block title %}Discover Malaysia{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/immersive.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/editorial.css') }}">
+</head>
+<body>
+  <a class="skip-to-content" href="#mainContent">Skip to content</a>
+  <header class="navbar" id="siteHeader">
+    <div class="nav-container">
+      <a class="logo" href="{{ url_for('home') }}" aria-label="Discover Malaysia home">DISCOVER<span>·</span><small>MALAYSIA</small></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="{{ url_for('explore') }}">Destinations</a>
+        <a href="{{ url_for('attractions') }}">Experiences</a>
+        <a href="{{ url_for('hotels') }}">Stays</a>
+        <a href="{{ url_for('transport') }}">Getting around</a>
+        <a class="nav-mobile-cta" href="{{ url_for('trip_planner') }}">Plan your trip ↗</a>
+      </nav>
+      <a class="nav-button" href="{{ url_for('trip_planner') }}">Plan a journey <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+    </div>
+  </header>
+  <main id="mainContent">{% block content %}{% endblock %}</main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-lead"><a class="logo" href="{{ url_for('home') }}">DISCOVER<span>·</span><small>MALAYSIA</small></a><h3>Go somewhere <em>beautiful.</em></h3><p>Your thoughtfully curated guide to discovering and exploring Malaysia, at your own pace.</p></div>
+      <div><h4>Explore</h4><a href="{{ url_for('explore') }}">Destinations</a><a href="{{ url_for('attractions') }}">Experiences</a><a href="{{ url_for('hotels') }}">Accommodation</a></div>
+      <div><h4>Plan</h4><a href="{{ url_for('transport') }}">Transport options</a><a href="{{ url_for('trip_planner') }}">Trip planner</a><a href="{{ url_for('itinerary') }}">Itinerary guide</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Discover Malaysia · Independent travel guide. Booking, prices and schedules are verified with external providers.</span><p class="coverage-disclaimer">Not all exploration destinations are captured here. Just well known ones.</p></div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/location.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/immersive.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/editorial.js') }}" defer></script>
+</body>
+</html>

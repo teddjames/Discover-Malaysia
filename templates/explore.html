@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Explore Malaysia | Discover Malaysia{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container page-hero-content"><p class="section-label">THE DESTINATION EDIT</p><h1>Find your next<br><em>escape.</em></h1><p>Search Malaysia, explore what's nearby and open a complete guide to any destination you like.</p></div></section>
+<section class="listing-section container"><div class="section-heading"><div><p class="section-label">EXPLORE MALAYSIA</p><h2>Choose a place.<br><em>Plan the journey.</em></h2></div><p class="section-description">Each destination opens its own guide with attractions, places to stay, transport options and trip planning.</p></div>
+<p class="coverage-disclaimer inline-disclaimer">Not all exploration destinations are captured here. Just well known ones.</p>
+{% set page_mode='explore' %}{% include '_location_search.html' %}
+<div class="listing-header"><div class="listing-count">{{ destinations|length }} destination(s) found {% if geo.center %}near {{ geo.geo_source }}{% endif %}</div><a class="clear-link" href="{{ url_for('explore') }}">Reset filters</a></div>
+<div class="destination-grid explore-destinations">{% for d in destinations %}<a class="destination-card" href="{{ url_for('destination_detail',slug=d['slug']) }}" style="--card-image:url('{{ url_for('static',filename='images/editorial/' ~ d['slug'] ~ '.webp') }}')"><div class="destination-overlay"></div><div class="destination-content"><span>{% if d.distance_km is not none %}≈ {{ d.distance_km }} km away · straight-line{% else %}DISCOVER MALAYSIA{% endif %}</span><h3>{{ d['name'] }}</h3><p>{{ d['description'] }}</p><strong>Explore · Stays · Directions ↗</strong></div></a>{% else %}<div class="empty-state">No destinations match your filters. Try increasing the radius or searching a different area.</div>{% endfor %}</div>
+</section>{% endblock %}
