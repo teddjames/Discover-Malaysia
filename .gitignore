@@ -1,0 +1,15 @@
+# Git and local Python files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+# Local SQLite data; seeded on every service startup
+database/tourism.db
+database/tourism.db-journal
+database/tourism.db-wal
+database/tourism.db-shm
+.DS_Store

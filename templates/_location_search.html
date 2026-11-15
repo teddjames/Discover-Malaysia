@@ -1,0 +1,17 @@
+{# Included in Explore, Attractions and Stay. Variables: page_mode, geo, query, destinations #}
+<form method="get" class="filter-bar geo-search-form" data-geo-form>
+  <div class="search-field main-field"><label for="querySearch">SEARCH</label><input id="querySearch" type="search" name="q" value="{{ query }}" placeholder="Search places, cities, experiences..."></div>
+  {% if page_mode != 'explore' %}
+  <div class="search-field"><label for="areaLocation">DESTINATION</label><select id="areaLocation" name="location"><option value="">All destinations</option>{% for d in destinations %}<option value="{{ d['slug'] }}" {% if location==d['slug'] %}selected{% endif %}>{{ d['name'] }}</option>{% endfor %}</select></div>
+  {% endif %}
+  {% if page_mode == 'attractions' %}
+  <div class="search-field"><label for="categorySelect">EXPERIENCE</label><select name="category" id="categorySelect"><option value="">All categories</option>{% for c in categories %}<option value="{{ c['category'] }}" {% if category==c['category'] %}selected{% endif %}>{{ c['category']|title }}</option>{% endfor %}</select></div>
+  {% elif page_mode == 'hotels' %}
+  <div class="search-field"><label for="typeSelect">ACCOMMODATION</label><select name="type" id="typeSelect"><option value="">All types</option>{% for t in types %}<option value="{{ t['type'] }}" {% if accommodation_type==t['type'] %}selected{% endif %}>{{ t['type']|title }}</option>{% endfor %}</select></div>
+  {% endif %}
+  <div class="search-field"><label for="nearSelect">SEARCH NEAR</label><select name="near" id="nearSelect" data-near-select><option value="">Anywhere in Malaysia</option>{% for d in (all_destinations if page_mode=='explore' else destinations) %}<option value="{{ d['slug'] }}" {% if geo.near==d['slug'] %}selected{% endif %}>{{ d['name'] }}</option>{% endfor %}</select></div>
+  <div class="search-field compact-field"><label for="radiusSelect">RADIUS</label><select name="radius" id="radiusSelect">{% for km in [10,25,50,75,150,300,500] %}<option value="{{ km }}" {% if geo.radius==km %}selected{% endif %}>{{ km }} km</option>{% endfor %}</select></div>
+  <input type="hidden" name="lat" value="{{ geo.lat }}" data-lat><input type="hidden" name="lon" value="{{ geo.lon }}" data-lon>
+  <div class="search-actions"><button class="secondary-action" type="button" data-use-location>◎ Use my location</button><button class="primary-button" type="submit">Find places ↗</button></div>
+  <div class="geo-feedback" data-geo-feedback role="status" aria-live="polite">{% if geo.center %}Showing places within {{ geo.radius }} km of {{ geo.geo_source }} (straight-line distance).{% else %}Choose a city or use your location to find nearby places. Location sharing is optional.{% endif %}</div>
+</form>

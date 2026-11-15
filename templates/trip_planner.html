@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block title %}
+Plan Your Trip | Discover Malaysia
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="container page-hero-content">
+
+        <p class="section-label">
+            PERSONAL TRAVEL PLANNER
+        </p>
+
+        <h1>
+            Build your<br>
+            perfect trip.
+        </h1>
+
+        <p>
+            Tell us about your trip and we'll help you
+            create a personalised itinerary around
+            Malaysia, using the experiences in our guide.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="planner-section">
+    <p class="coverage-disclaimer inline-disclaimer">Not all exploration destinations are captured here. Just well known ones. The itinerary uses activities currently recorded in this guide.</p>
+
+    <div class="planner-form">
+
+
+        <!-- STEP 01 — CALENDAR DATE RANGE -->
+        <div class="planner-step">
+            <span>01</span>
+            <div>
+                <p class="section-label">YOUR TRAVEL DATES</p>
+                <h2>When are you visiting?</h2>
+                <p class="choice-helper">Choose your arrival and departure dates. Both days are included in your itinerary; the nights between are shown separately. Plan up to 90 days.</p>
+                <div class="date-range">
+                    <div class="date-field">
+                        <label for="tripStartDate">ARRIVAL DATE</label>
+                        <input type="date" id="tripStartDate" name="start_date" required>
+                    </div>
+                    <div class="date-field">
+                        <label for="tripEndDate">DEPARTURE DATE</label>
+                        <input type="date" id="tripEndDate" name="end_date" required>
+                    </div>
+                </div>
+                <div class="date-summary" id="tripLengthSummary" aria-live="polite">Choose dates to see your trip duration.</div>
+            </div>
+        </div>
+
+
+        <!-- ==========================================
+             STEP 02 — BUDGET
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                02
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    BUDGET
+                </p>
+
+                <h2>
+                    What's your budget?
+                </h2>
+
+                <div class="option-grid">
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="budget"
+                        data-value="conservative"
+                    >
+                        Conservative
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option selected"
+                        data-type="budget"
+                        data-value="moderate"
+                    >
+                        Moderate
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="budget"
+                        data-value="luxury"
+                    >
+                        Luxury
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             STEP 03 — INTERESTS
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                03
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    INTERESTS
+                </p>
+
+                <h2>
+                    What do you enjoy?
+                </h2>
+
+                <p class="choice-helper">Select one or more interests, or choose <strong>Anything</strong> for experiences from every available category.</p>
+                <div class="interest-grid">
+                    <button type="button" class="planner-option selected" data-type="interest" data-value="anything" aria-pressed="true">✦ Anything & Everything</button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="food"
+                    >
+                        🍜 Food
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="photography"
+                    >
+                        📸 Photography
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="culture"
+                    >
+                        🛕 Culture
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="adventure"
+                    >
+                        🏔️ Adventure
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="shopping"
+                    >
+                        🛍️ Shopping
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="nightlife"
+                    >
+                        🌙 Nightlife
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="nature"
+                    >
+                        🌿 Nature
+                    </button>
+
+                    <button
+                        type="button"
+                        class="planner-option"
+                        data-type="interest"
+                        data-value="family"
+                    >
+                        👨‍👩‍👧 Family
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             STEP 04 — DESTINATIONS
+        =========================================== -->
+
+        <div class="planner-step">
+
+            <span>
+                04
+            </span>
+
+            <div>
+
+                <p class="section-label">
+                    DESTINATIONS
+                </p>
+
+                <h2>
+                    Where do you want to go?
+                </h2>
+
+                <div class="interest-grid">{% for d in destinations %}<button type="button" class="planner-option {% if d['name']==selected_destination or (not selected_destination and loop.first) %}selected{% endif %}" data-type="destination" data-value="{{ d['name'] }}">{{ d['name'] }}</button>{% endfor %}</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             BUILD TRIP BUTTON
+        =========================================== -->
+
+        <div class="planner-submit">
+
+            <button
+                type="button"
+                class="primary-button planner-main-button"
+                id="generateTrip"
+            >
+                Build My Trip →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         ITINERARY RESULTS
+    =========================================== -->
+
+    <section
+        id="itineraryResults"
+        class="itinerary-results"
+    >
+
+        <div class="planner-empty">
+
+            <span class="section-label">
+                YOUR ITINERARY
+            </span>
+
+            <h2>
+                Let's plan your trip.
+            </h2>
+
+            <p>
+                Select your dates, budget, interests and destinations to create a day-by-day itinerary.
+            </p>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- ==========================================
+     TRIP PLANNER JAVASCRIPT
+=========================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/trip_planner.js') }}"
+></script>
+
+{% endblock %}

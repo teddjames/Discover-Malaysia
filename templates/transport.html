@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Transport & Tickets | Discover Malaysia{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container page-hero-content">
+    <p class="section-label">TRANSPORT & GETTING THERE</p>
+    <h1>Every way to <em>get there.</em></h1>
+    <p>Explore practical ways to reach your destination—flights, coaches, rail, cabs, ferries, and connecting services—with links to the places you can check and book them.</p>
+  </div>
+</section>
+<section class="transport-section container">
+  <div class="section-heading">
+    <div><p class="section-label">COMPARE YOUR JOURNEY</p><h2>How will you <em>travel?</em></h2></div>
+    <p class="section-description">Select any two destinations in our guide. We'll show relevant transport options, important transfers and operator booking links.</p>
+  </div>
+  <div class="route-planner route-planner-expanded">
+    <div class="route-field"><label for="transportFrom">TRAVELLING FROM</label>
+      <select id="transportFrom">{% for d in all_destinations %}<option value="{{ d.name }}" {% if selected_origin==d.name or (not selected_origin and d.slug=='kuala-lumpur') %}selected{% endif %}>{{ d.name }}</option>{% endfor %}</select>
+    </div>
+    <span class="route-arrow">→</span>
+    <div class="route-field"><label for="transportTo">TRAVELLING TO</label>
+      <select id="transportTo">{% for d in all_destinations %}<option value="{{ d.name }}" {% if selected_destination==d.name or (not selected_destination and d.slug=='penang') %}selected{% endif %}>{{ d.name }}</option>{% endfor %}</select>
+    </div>
+    <button class="primary-button" id="compareTransport" type="button">Find travel options ↗</button>
+  </div>
+  <div class="transport-results" aria-live="polite">
+    <div class="transport-results-empty"><p class="section-label">TRAVEL OPTIONS</p><h3>Choose your route.</h3><p>You'll see transport modes to investigate and where to check schedules or book.</p></div>
+  </div>
+  <p class="disclaimer">These recommendations are planning guidance, not a live booking engine. No flight, bus, train, ferry, car or cab departure is guaranteed. Check operating dates, transfers, fares and actual booking availability with providers before travelling.</p>
+  <p class="coverage-disclaimer inline-disclaimer">Not all exploration destinations are captured here. Just well known ones.</p>
+</section>
+<script src="{{ url_for('static',filename='js/transport.js') }}" defer></script>
+{% endblock %}
