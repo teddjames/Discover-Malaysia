@@ -1,0 +1,231 @@
+
+/* Discover Malaysia — Globe Loader */
+
+.dm-page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  background: #f7f7f2;
+  color: #233f2e;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 380ms ease, visibility 380ms ease;
+}
+
+.dm-js .dm-page-loader:not([hidden]) {
+  display: flex;
+}
+
+.dm-page-loader[hidden] {
+  display: none !important;
+}
+
+.dm-page-loader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.dm-loader-inner {
+  width: min(100%, 390px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ROTATING GLOBE */
+
+.dm-loader-planet {
+  position: relative;
+  width: 174px;
+  height: 174px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  margin-bottom: 28px;
+}
+
+.dm-loader-aura {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(79, 176, 128, 0.22),
+    rgba(79, 176, 128, 0) 70%
+  );
+  filter: blur(13px);
+  animation: dm-loader-glow 3.5s ease-in-out infinite;
+}
+
+.dm-loader-orbit {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(56, 127, 89, 0.28);
+  border-top-color: #37875e;
+  border-right-color: rgba(36, 141, 93, 0.75);
+  border-radius: 50%;
+  animation: dm-loader-ring 4.5s linear infinite;
+}
+
+.dm-loader-orbit::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #58c18a;
+  box-shadow: 0 0 12px rgba(51, 174, 109, 0.7);
+}
+
+.dm-loader-globe {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 152px;
+  height: 152px;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(
+    0 10px 17px rgba(22, 73, 46, 0.20)
+  );
+  animation: dm-loader-globe-turn 20s linear infinite;
+}
+
+/* BRANDING */
+
+.dm-loader-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #274a38;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+
+.dm-loader-wordmark > span {
+  color: #719c76;
+  font-size: 18px;
+  line-height: 0.7;
+}
+
+.dm-loader-wordmark small {
+  margin-left: 0.34em;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  font-weight: 550;
+}
+
+/* LOADING LINE */
+
+.dm-loader-rule {
+  width: 125px;
+  height: 2px;
+  overflow: hidden;
+  margin: 30px 0 18px;
+  background: #dbe8dc;
+  border-radius: 5px;
+}
+
+.dm-loader-rule > span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: #4f8869;
+  animation: dm-loader-track 1.6s ease-in-out
+    infinite alternate;
+}
+
+.dm-page-loader p {
+  margin: 0 0 13px;
+  color: #506d59;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dm-loader-caption {
+  color: #829788;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+}
+
+/* ANIMATIONS */
+
+@keyframes dm-loader-globe-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dm-loader-ring {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes dm-loader-glow {
+  50% {
+    opacity: 0.55;
+    transform: scale(1.10);
+  }
+}
+
+@keyframes dm-loader-track {
+  from {
+    transform: translateX(-60%);
+  }
+  to {
+    transform: translateX(205%);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .dm-loader-planet {
+    width: 148px;
+    height: 148px;
+    margin-bottom: 25px;
+  }
+
+  .dm-loader-globe {
+    width: 130px;
+    height: 130px;
+  }
+
+  .dm-loader-wordmark {
+    font-size: 18px;
+  }
+
+  .dm-loader-caption {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-page-loader {
+    transition: none;
+  }
+
+  .dm-loader-globe,
+  .dm-loader-orbit,
+  .dm-loader-aura,
+  .dm-loader-rule > span {
+    animation: none;
+  }
+}
